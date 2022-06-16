@@ -1,0 +1,17 @@
+service: sws-operation-provisioner12
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
+
+provider:
+  name: aws
+  endpointType: REGIONAL
+  runtime: nodejs14.x
+
+functions:
+  testGet:
+    handler: src/app.handle
+    events:
+      - http:
+          path: api/testGet
+          method: GET
